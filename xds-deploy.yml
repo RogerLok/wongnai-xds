@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wongnai-xds-name
+  labels:
+    app: wongnai-xds
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wongnai-xds
+  template:
+    metadata:
+      labels:
+        app: wongnai-xds
+    spec:
+      containers:
+        - name: wongnai-xds
+          image: clam2718/wongnai_xds
+          ports:
+            - containerPort: 5000
